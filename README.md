@@ -1,4 +1,4 @@
-#Handwritten Search Engine for openlibrary
+# Handwritten Search Engine for openlibrary
 
 ![image](https://user-images.githubusercontent.com/82448514/210139997-8d97f91e-98f3-461f-8566-6c5b06f5b6b6.png)
 ![image](https://user-images.githubusercontent.com/82448514/210140011-873c28ac-5707-4b6e-a9cd-225fb2c64a83.png)
