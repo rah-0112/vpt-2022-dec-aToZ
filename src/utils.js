@@ -68,14 +68,12 @@ export async function getBooksFromQuery(
 // );
 
 export async function getBookDetails(bookId) {
-    const queryString = `https://openlibrary.org/books/${bookId}.json`;
+    const queryString = `https://openlibrary.org/api/books?bibkeys=OLID:${bookId}&format=json&jscmd=details`;
     const bookDetails = await (await fetch(queryString)).json();
-    return {
-        olid: bookDetails.key.split("/").pop(),
-        title: bookDetails.title,
-        subtitle: bookDetails.subtitle,
-        format: bookDetails.physical_format,
-    };
+    const workDetails = await getWorkDetails(
+        bookDetails[ `OLID:${bookId}` ].details.works[ 0 ].key.split("/").pop()
+    );
+    return workDetails;
 }
 
 export async function getWorkDetails(workId) {
@@ -115,11 +113,11 @@ async function getEditions(workId, limit = 10, offset = 0) {
                     title,
                     publishDate: publish_date,
                     author: by_statement,
-                    publisher: publishers[ 0 ],
+                    publisher: publishers ? publishers[ 0 ] : "None",
                     cover: covers
                         ? `https://covers.openlibrary.org/b/id/${covers[ 0 ]}-S.jpg`
                         : "None",
-                    bookId: key.split("/").pop(),
+                    olid: key.split("/").pop(),
                     workId: works[ 0 ].key.split("/").pop(),
                 };
             }

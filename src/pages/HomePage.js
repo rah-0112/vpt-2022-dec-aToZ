@@ -24,7 +24,6 @@ const useStyles = makeStyles(() => ({
         alignItems: "end",
         justifyContent: "end",
         color: "gray",
-
     },
     bannerContent: {
         height: "100%",

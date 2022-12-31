@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
         cursor: "pointer",
     },
     link: {
-        color: "blue"
+        color: "black"
     },
     lin: {
         textDecoration: "none",

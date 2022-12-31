@@ -23,14 +23,14 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const ListView = ({ books }) => {
+const ListView = ({ books, editBook }) => {
     const classes = useStyles();
     return (
         <Container className={classes.list}>
             <List className={classes.root}>
                 {books.map(book => (
                     <>
-                        <Link to={`books/${book.olid}`} className={classes.link}>
+                        <Link to={`/books/${editBook ? editBook : book.olid}`} target="_blank" className={classes.link}>
                             < ListItem button >
                                 <ListItemAvatar>
                                     <Avatar src={book.cover} variant="square" style={{ height: '8rem', width: '7rem', marginTop: ".2rem", marginBottom: ".2rem", marginRight: "3rem" }}>
